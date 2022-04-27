@@ -6,6 +6,12 @@ const newUser = {
     city: "Valinhos"
 }
 
+const userUpdated = {
+    name: "Gabriel Vinicius",
+    avatar: "https://source.unsplash.com/random",
+    city: "Campinas"
+}
+
 function getUsers() {
     axios.get(url)
         .then(response => {
@@ -34,6 +40,21 @@ function getUser(id){
         .catch(error => console.error(error))
 }
 
+function updateUser(id, userUpdated){
+    axios.put(`${url}/${id}`, userUpdated)
+        .then(response => console.log(response))
+        .catch(error => console.error(error))
+}
+
+function deleteUser(id){
+    axios.delete(`${url}/${id}`)
+        .then(response => console.log(response))
+        .catch(error => console.error(error))
+}
+
+
 getUsers()
-getUser(3)
+getUser()
 //addNewUser(newUser)
+//updateUser(3, userUpdated)
+//deleteUser()
