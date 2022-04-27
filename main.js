@@ -22,5 +22,18 @@ function addNewUser() {
         .catch(error => console.error(error))
 }
 
+function getUser(id){
+    axios.get(`${url}/${id}`)
+        .then(response => {
+            const data = response.data
+            userName.textContent = data.name
+            userCity.textContent = data.city
+            userID.textContent = data.id
+            userAvatar.src = data.avatar
+        })
+        .catch(error => console.error(error))
+}
+
 getUsers()
+getUser(3)
 //addNewUser(newUser)
